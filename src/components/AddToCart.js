@@ -29,7 +29,6 @@ export default function AddToCart() {
   }, [cartItems])
 
   return (
-    
     <Button type="primary" className="btn-tocar" onClick={addToCart}>
       <CartIcon size={20} />
       <span style={{ marginLeft: 12 }}>Add To Shopping Bag</span>

@@ -8,21 +8,11 @@
     margin: auto;
     background-color: #111828;
 }
-.cart-container{
-    width: 80%;
-    display: flex;
-    align-self: center;
-   
-    background-color: #111828;
-}
+
 /* sm */
 @media (min-width: 576px) { 
   .container {
     width: 540px;
-  }
-  .cart-container {
-    width: 400px;
-    
   }
 } 
 
@@ -31,20 +21,12 @@
   .container {
     width: 720px;
   }
-  .cart-container {
-    width: 500px;
-   
-  }
 } 
 
 /* lg */
 @media (min-width: 992px) {
   .container {
     width: 960px;
-  }
-  .cart-container {
-    width: 500px;
-   
   }
 } 
 
@@ -53,11 +35,6 @@
   .container {
     width: 1140px;
   }
-  .cart-container {
-    width: 800px;
-    
-  }
-  
 } 
 
 /* xxl */
@@ -65,11 +42,6 @@
   .container {
     width: 1500px;
   }
-  .cart-container {
-    width: 1300px;
-    
-  }
-  
 } 
 
 /* general */
@@ -186,31 +158,6 @@ body {
 }
 
 /* Cart */
-.cart-header {
-  display:flex;
-  flex-direction: column ;
-  margin-top: 3rem;
-  
-}
-.cart-tital {
-  color: white;
-  font-size: 50px;
-  padding-top: 10px;
-  cursor: pointer;
-}
-.cart-tital-price{
-  color: white;
-  font-size: 16px;
-  padding: 0;
-
-  margin-left:805px;
-  cursor: pointer;
-}
-.cart-box{
-  width: 840px;
-}
-
-
 .cart-summary-text {
   color: white;
   font-size: 0.8rem;
@@ -243,7 +190,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   border-bottom: .1rem #c0c0c0 solid;
@@ -273,42 +220,46 @@ body {
   cursor: pointer;
 }
 
-.cart-total-price-wrap {display: flex; justify-content: flex-end;}
+.cart-total-price-wrap {display: flex; justify-content: space-between;}
 .cart-total-price {
   font-weight: bold;
   text-align: right;
-  margin-left: 3rem;
 }
-@media (max-width: 768px) {
-  .cart-summary-text {
-    display: none;
-  }
-  .cart-box{
-    width:100px;
-  }
-  .cart-tital-price{
-    margin-left:80px;
-  }
-} 
+
+.cart-list-topic{
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.cart-list-content{
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+
+
+
 @media (max-width: 992px) {
   .cart-summary-text {
     display: none;
   }
-  .cart-box{
-    width:100px;
+}
+
+@media (min-width: 768px) {
+  .cart-list-topic{
+    font-size: 2.4rem;
+    text-align: left;
   }
-  .cart-tital-price{
-    margin-left:100px;
+  
+  .cart-list-content{
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+    text-align: left;
   }
-} 
-@media (max-width:1200px) {
-  .cart-box{
-    width: 500px;
-  }
-  .cart-tital-price{
-    margin-left:465px;
-  }
-} 
+}
+
+
 
 .nav-bar {
   background-color: #111828;
