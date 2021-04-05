@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { Button, notification } from "antd"
 import { StoreContext } from "../store"
 import { CartIcon } from "./Icons";
-import { cartItemAdd } from "../actions";
+import { addCartItem } from "../actions";
 
 export default function AddToCart() {
   const { state: { cartItems, productDetail: { product, qty } }, dispatch } = useContext(StoreContext);
@@ -21,7 +21,7 @@ export default function AddToCart() {
 
   const addToCart = () => {
     openNotification();
-    cartItemAdd(dispatch, product, qty);
+    addCartItem(dispatch, product, qty);
   };
 
   useEffect(()=>{

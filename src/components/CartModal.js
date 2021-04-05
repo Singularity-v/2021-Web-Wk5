@@ -1,10 +1,9 @@
 import { Modal, Button, Select } from "antd";
-import { useContext, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store"
 import { CartIcon } from "./Icons";
-import { cartItemAdd, cartItemRemove, setProductDetail } from "../actions";
-
+import { addCartItem, removeCartItem, setProductDetail } from "../actions";
 const { Option } = Select;
 
 export default function CartModal({ isModalVisible, toggleModal }) {
@@ -16,8 +15,8 @@ export default function CartModal({ isModalVisible, toggleModal }) {
          : 0;
    }
 
-   useEffect (() => {
-      localStorage.setItem( "cartItems", JSON.stringify(cartItems));
+   useEffect(() => {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
    }, [cartItems])
 
    return (
@@ -33,7 +32,7 @@ export default function CartModal({ isModalVisible, toggleModal }) {
             cartItems.map(item => (
                <li key={item.id} className="cart-item">
                   <Link to={`/product/${item.id}`}>
-                     <div className="cart-image" onClick={() => {
+                     <div className="cart-image" onClick={()=>{
                         setProductDetail(dispatch, item.id, item.qty);
                         handleCancel();
                      }}>
@@ -48,7 +47,7 @@ export default function CartModal({ isModalVisible, toggleModal }) {
                            defaultValue={item.qty}
                            value={item.qty}
                            className="select-style"
-                           onChange={(qty) => cartItemAdd(dispatch, item, qty)}
+                           onChange={(qty) => addCartItem(dispatch, item, qty)}
                         >
                            {[...Array(item.countInStock).keys()].map((x) => (
                               <Option key={x + 1} value={x + 1}>
@@ -60,9 +59,9 @@ export default function CartModal({ isModalVisible, toggleModal }) {
                   </div>
                   <div className="cart-item-end">
                      <div className="cart-price">
-                        ${item.price * item.qty}    
+                        ${item.price * item.qty}
                      </div>
-                     <div className="cart-item-delete" onClick={()=>cartItemRemove(dispatch,item.id)}>
+                     <div className="cart-item-delete" onClick={() => removeCartItem(dispatch, item.id)}>
                         x
                      </div>
                   </div>
@@ -71,7 +70,7 @@ export default function CartModal({ isModalVisible, toggleModal }) {
             ))
          )}
          <div className="cart-total-price-wrap">
-           Total
+            Total
             <div className="cart-total-price">${getTotalPrice()}</div>
          </div>
          <Button

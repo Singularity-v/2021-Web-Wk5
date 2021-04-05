@@ -4,7 +4,7 @@ import { Button,Select } from 'antd';
 import AddToCart from "./AddToCart"
 import { StoreContext } from "../store"
 import { CartIcon } from "./Icons";
-import {cartItemAdd, cartItemRemove, setProductDetail } from "../actions";
+import {addCartItem, removeCartItem, setProductDetail } from "../actions";
 
 import { Link } from "react-router-dom";
 
@@ -47,7 +47,7 @@ function CartProduct({ isModalVisible, toggleModal }) {
                            defaultValue={item.qty}
                            value={item.qty}
                            className="select-style"
-                           onChange={(qty) => cartItemAdd(dispatch, item, qty)}
+                           onChange={(qty) => addCartItem(dispatch, item, qty)}
                         >
                            {[...Array(item.countInStock).keys()].map((x) => (
                               <Option key={x + 1} value={x + 1}>
@@ -61,7 +61,7 @@ function CartProduct({ isModalVisible, toggleModal }) {
                      <div className="cart-price">
                         ${item.price * item.qty}
                      </div>
-                     <div className="cart-item-delete" onClick={() => cartItemRemove(dispatch, item.id)}>
+                     <div className="cart-item-delete" onClick={() => removeCartItem(dispatch, item.id)}>
                         x
                      </div>
                   </div>
@@ -69,14 +69,10 @@ function CartProduct({ isModalVisible, toggleModal }) {
                </li>
             ))
          )}
-         <div className="happy">
-            Happy Shopping！
-            <div className="cart-total-price-wrap">
-               Total
-               <div className="cart-total-price">${getTotalPrice()}</div>
-            </div>
+         <div className="cart-total-price-wrap">
+            Total
+            <div className="cart-total-price">${getTotalPrice()}</div>
          </div>
-
          <Button
             className="cart-modal-btn"
             type="primary"
