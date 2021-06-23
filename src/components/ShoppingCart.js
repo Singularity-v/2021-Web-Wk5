@@ -1,8 +1,6 @@
 import { useContext } from "react";
-import { Row, Col } from "antd";
 import { Select } from 'antd';
 import { StoreContext } from "../store"
-import { setProductDetail } from "../actions";
 
 const { Option } = Select;
 

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store";
-import CartSummary from "./CartSummary";
 import { pageContentsSet, activeNavItemSet } from "../actions";
 import { getJSON } from "../api";
 
